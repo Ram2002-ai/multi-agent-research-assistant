@@ -1,0 +1,32 @@
+# Secrets — never commit these
+.env
+*.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+env/
+.venv/
+
+# Jupyter (original notebook — keep only the structured .py files)
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Generated outputs (keep sample report only)
+outputs/*.md
+!outputs/sample_report.md
+
+# OS
+.DS_Store
+Thumbs.db

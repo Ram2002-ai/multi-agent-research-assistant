@@ -1,0 +1,5 @@
+from tasks.research_task import create_research_task
+from tasks.teaching_task import create_teaching_task
+from tasks.simplify_task import create_simplify_task
+from tasks.notes_task import create_notes_task
+from tasks.exam_task import create_exam_task

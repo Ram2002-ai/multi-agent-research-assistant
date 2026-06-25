@@ -43,10 +43,13 @@ def save_output(topic: str, result: str) -> str:
 
 
 def run_sync(topic: str):
-    """Run the crew synchronously."""
+    """Run the crew synchronously.
+
+    This uses the async crew API under the hood because Crewai's sync
+    kickoff wrapper may trigger nested event loop issues on some systems.
+    """
     crew = build_crew(topic)
-    result = crew.kickoff()
-    return result
+    return asyncio.run(crew.kickoff_async())
 
 
 async def run_async(topic: str):

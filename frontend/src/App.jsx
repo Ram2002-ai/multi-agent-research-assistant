@@ -19,9 +19,15 @@ function App() {
         body: JSON.stringify({ topic }),
       })
 
-      const data = await response.json()
+      const text = await response.text()
+      const data = text ? JSON.parse(text) : null
+
       if (!response.ok) {
-        throw new Error(data.detail || 'Request failed')
+        throw new Error(data?.detail || data?.message || `Request failed (${response.status})`)
+      }
+
+      if (!data || typeof data.result !== 'string') {
+        throw new Error('Unexpected API response format')
       }
 
       setResult(data.result)

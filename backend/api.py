@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import asyncio
+import logging
 import os
 import pathlib
 import sys
@@ -10,8 +11,11 @@ ROOT_DIR = pathlib.Path(__file__).resolve().parent.parent
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
-from config import validate_env
+from config import validate_env, get_llm
 from crew import build_crew
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title="Multi-Agent Research Assistant API",
@@ -42,15 +46,34 @@ def save_output(topic: str, result: str) -> str:
 
 @app.on_event("startup")
 def startup_event() -> None:
-    validate_env()
+    try:
+        validate_env()
+    except Exception as exc:
+        logger.exception("Startup validation failed")
+        raise
+
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
+
+@app.get("/debug_model")
+def debug_model():
+    """Return the resolved LLM model string for debugging."""
+    return {"llm": get_llm()}
 
 
 @app.post("/research", response_model=ResearchResponse)
 def research(request: ResearchRequest):
     try:
+        logger.info("Received research request for topic: %s", request.topic)
+        logger.info("Resolved LLM model: %s", get_llm())
         crew = build_crew(request.topic)
         result = asyncio.run(crew.kickoff_async())
         report_path = save_output(request.topic, result)
+        logger.info("Research completed for topic: %s", request.topic)
         return ResearchResponse(topic=request.topic, result=result, report_path=report_path)
     except Exception as exc:
+        logger.exception("Error while processing research request")
         raise HTTPException(status_code=500, detail=str(exc))

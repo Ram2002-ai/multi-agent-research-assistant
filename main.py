@@ -15,7 +15,8 @@ Usage:
 
 Output:
     - Printed to terminal (verbose agent logs + final report)
-    - Saved to outputs/report_<timestamp>.md
+    - Saved to outputs/report_<timestamp>.md (markdown format)
+    - Saved to outputs/report_<timestamp>_structured.txt (structured format with all agents)
 """
 
 import argparse
@@ -25,21 +26,44 @@ from datetime import datetime
 
 from config import validate_env
 from crew import build_crew
+from output_formatter import format_structured_output
+from pdf_formatter import generate_pdf
 
 
-def save_output(topic: str, result: str) -> str:
-    """Save the crew output to a markdown file in outputs/."""
+def save_output(topic: str, result: str) -> tuple:
+    """Save the crew output to markdown, text, and PDF files.
+    
+    Args:
+        topic: The research topic
+        result: The crew output result
+        
+    Returns:
+        tuple: (markdown_file, structured_file, pdf_file)
+    """
     os.makedirs("outputs", exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"outputs/report_{timestamp}.md"
-
-    with open(filename, "w", encoding="utf-8") as f:
+    
+    # Save as markdown
+    md_filename = f"outputs/report_{timestamp}.md"
+    with open(md_filename, "w", encoding="utf-8") as f:
         f.write(f"# Research Report: {topic}\n\n")
         f.write(f"*Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*\n\n")
         f.write("---\n\n")
         f.write(str(result))
+    
+    # Save as structured text with all agent outputs
+    structured_filename = f"outputs/report_{timestamp}_structured.txt"
+    structured_output = format_structured_output(str(result))
+    with open(structured_filename, "w", encoding="utf-8") as f:
+        f.write(f"MULTI-AGENT RESEARCH REPORT: {topic}\n")
+        f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write(f"\n{structured_output}\n")
+    
+    # Save as PDF
+    pdf_filename = f"outputs/report_{timestamp}.pdf"
+    generate_pdf(topic, str(result), pdf_filename)
 
-    return filename
+    return md_filename, structured_filename, pdf_filename
 
 
 def run_sync(topic: str):
@@ -61,7 +85,7 @@ async def run_async(topic: str):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Multi-Agent Research Assistant — powered by CrewAI + Gemini"
+        description="Multi-Agent Research Assistant — powered by CrewAI + OpenRouter"
     )
     parser.add_argument(
         "--topic",
@@ -90,13 +114,18 @@ def main():
     else:
         result = run_sync(args.topic)
 
-    # Save to file
-    output_file = save_output(args.topic, result)
+    # Save to files
+    md_file, struct_file, pdf_file = save_output(args.topic, result)
 
     print(f"\n{'='*60}")
-    print(f"  Done! Report saved to: {output_file}")
+    print(f"  Done! Reports saved to:")
+    print(f"  - {md_file}")
+    print(f"  - {struct_file}")
+    print(f"  - {pdf_file}")
     print(f"{'='*60}\n")
-    print(result)
+    
+    # Print structured output
+    print(format_structured_output(str(result)))
 
 
 if __name__ == "__main__":

@@ -3,3 +3,4 @@ from tasks.teaching_task import create_teaching_task
 from tasks.simplify_task import create_simplify_task
 from tasks.notes_task import create_notes_task
 from tasks.exam_task import create_exam_task
+from tasks.report_task import create_report_task

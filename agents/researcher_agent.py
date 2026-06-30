@@ -18,7 +18,7 @@ from config import get_llm
 from tools.search_tool import get_search_tool
 
 
-def create_researcher_agent() -> Agent:
+def create_researcher_agent(llm: str | None = None) -> Agent:
     return Agent(
         role="Researcher",
         goal="Find the latest and most accurate information on the given topic",
@@ -27,7 +27,7 @@ def create_researcher_agent() -> Agent:
             "searching and evaluating real-world data from the web. "
             "You always verify facts from multiple sources before reporting."
         ),
-        llm=get_llm(),
+        llm=llm or get_llm(),
         tools=[get_search_tool()],  # web search enabled for this agent only
         allow_delegation=False,
         verbose=True,

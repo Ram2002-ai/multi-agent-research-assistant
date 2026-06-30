@@ -15,7 +15,7 @@ from crewai import Agent
 from config import get_llm
 
 
-def create_simplifier_agent() -> Agent:
+def create_simplifier_agent(llm: str | None = None) -> Agent:
     return Agent(
         role="Simplifier",
         goal="Rewrite complex explanations in the simplest possible language",
@@ -25,7 +25,7 @@ def create_simplifier_agent() -> Agent:
             "all jargon and technical terms, replacing them with everyday "
             "words and short sentences."
         ),
-        llm=get_llm(),
+        llm=llm or get_llm(),
         allow_delegation=False,
         verbose=True,
     )

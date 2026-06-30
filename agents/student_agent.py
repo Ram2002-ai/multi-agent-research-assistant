@@ -17,7 +17,7 @@ from crewai import Agent
 from config import get_llm
 
 
-def create_student_agent() -> Agent:
+def create_student_agent(llm: str | None = None) -> Agent:
     return Agent(
         role="Student",
         goal="Write concise, well-organised revision notes on the topic",
@@ -27,7 +27,7 @@ def create_student_agent() -> Agent:
             "then write them up in a clear, structured format that is "
             "easy to revise from later."
         ),
-        llm=get_llm(),
+        llm=llm or get_llm(),
         allow_delegation=False,
         verbose=True,
     )

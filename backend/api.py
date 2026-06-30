@@ -77,129 +77,18 @@
 #     except Exception as exc:
 #         logger.exception("Error while processing research request")
 #         raise HTTPException(status_code=500, detail=str(exc))
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-import logging
-import os
-import pathlib
-import sys
-import time
-from datetime import datetime
+"""ASGI compatibility entrypoint.
 
-# -----------------------------------------------------------------------------
-# Add project root
-# -----------------------------------------------------------------------------
+Existing commands such as ``uvicorn backend.api:app`` continue to work while
+the implementation lives in the modular platform package.
+"""
 
-ROOT_DIR = pathlib.Path(__file__).resolve().parent.parent
-
-if str(ROOT_DIR) not in sys.path:
-    sys.path.insert(0, str(ROOT_DIR))
-
-from config import validate_env, get_llm
-from crew import build_crew
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-app = FastAPI(
-    title="Multi-Agent Research Assistant API",
-    version="1.0.0"
+from app import create_app
+from app.models.schemas import (
+    LegacyResearchRequest as ResearchRequest,
+    LegacyResearchResponse as ResearchResponse,
 )
 
-# -----------------------------------------------------------------------------
-# Models
-# -----------------------------------------------------------------------------
+app = create_app()
 
-class ResearchRequest(BaseModel):
-    topic: str
-
-
-class ResearchResponse(BaseModel):
-    topic: str
-    result: str
-    report_path: str
-
-
-# -----------------------------------------------------------------------------
-# Save report
-# -----------------------------------------------------------------------------
-
-def save_output(topic: str, result: str) -> str:
-
-    os.makedirs("outputs", exist_ok=True)
-
-    filename = f"outputs/report_{int(time.time())}.md"
-
-    with open(filename, "w", encoding="utf-8") as f:
-
-        f.write(f"# {topic}\n\n")
-
-        f.write(
-            f"Generated : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
-        )
-
-        f.write(str(result))
-
-    return filename
-
-
-# -----------------------------------------------------------------------------
-# Startup
-# -----------------------------------------------------------------------------
-
-@app.on_event("startup")
-def startup():
-
-    validate_env()
-
-    logger.info("Application Started")
-
-
-# -----------------------------------------------------------------------------
-# Health
-# -----------------------------------------------------------------------------
-
-@app.get("/health")
-def health():
-
-    return {"status": "ok"}
-
-
-@app.get("/debug_model")
-def debug():
-
-    return {"model": get_llm()}
-
-
-# -----------------------------------------------------------------------------
-# Research Endpoint
-# -----------------------------------------------------------------------------
-
-@app.post("/research", response_model=ResearchResponse)
-async def research(request: ResearchRequest):
-
-    try:
-
-        logger.info(f"Topic : {request.topic}")
-
-        crew = build_crew(request.topic)
-
-        # NO asyncio.run()
-        result = await crew.kickoff_async()
-
-        report = save_output(request.topic, result)
-
-        return ResearchResponse(
-            topic=request.topic,
-            result=str(result),
-            report_path=report
-        )
-
-    except Exception as e:
-
-        logger.exception(e)
-
-        raise HTTPException(
-            status_code=500,
-            detail=str(e)
-        )
+__all__ = ["app", "ResearchRequest", "ResearchResponse"]

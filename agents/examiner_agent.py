@@ -17,7 +17,7 @@ from crewai import Agent
 from config import get_llm
 
 
-def create_examiner_agent() -> Agent:
+def create_examiner_agent(llm: str | None = None) -> Agent:
     return Agent(
         role="Examiner",
         goal="Create 3 questions that test genuine understanding of the topic",
@@ -27,7 +27,7 @@ def create_examiner_agent() -> Agent:
             "range from basic recall to simple application, making them "
             "suitable for beginners learning the topic for the first time."
         ),
-        llm=get_llm(),
+        llm=llm or get_llm(),
         allow_delegation=False,
         verbose=True,
     )

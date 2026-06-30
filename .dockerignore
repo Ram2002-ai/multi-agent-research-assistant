@@ -1,0 +1,17 @@
+.git
+.github
+.agents
+.codex
+.env
+.venv
+venv
+__pycache__
+*.pyc
+.pytest_cache
+.ruff_cache
+data
+logs
+outputs/*
+!outputs/sample_report.md
+frontend/node_modules
+frontend/dist

@@ -15,7 +15,7 @@ from crewai import Agent
 from config import get_llm
 
 
-def create_teacher_agent() -> Agent:
+def create_teacher_agent(llm: str | None = None) -> Agent:
     return Agent(
         role="Teacher",
         goal="Explain concepts clearly, step by step, with real-world examples",
@@ -24,7 +24,7 @@ def create_teacher_agent() -> Agent:
             "complex topics accessible to beginners. You always use "
             "analogies and examples to bring abstract ideas to life."
         ),
-        llm=get_llm(),
+        llm=llm or get_llm(),
         allow_delegation=False,
         verbose=True,
     )

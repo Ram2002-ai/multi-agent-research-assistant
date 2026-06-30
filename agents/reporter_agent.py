@@ -14,7 +14,7 @@ from crewai import Agent
 from config import get_llm
 
 
-def create_reporter_agent() -> Agent:
+def create_reporter_agent(llm: str | None = None) -> Agent:
     return Agent(
         role="Report Generator",
         goal="Compile all research, explanations, notes, and questions into a well-structured comprehensive report",
@@ -23,7 +23,7 @@ def create_reporter_agent() -> Agent:
             "clear, well-organized reports. You take complex information from "
             "multiple sources and format it into a professional, easy-to-read document."
         ),
-        llm=get_llm(),
+        llm=llm or get_llm(),
         allow_delegation=False,
         verbose=True,
     )

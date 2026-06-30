@@ -36,7 +36,13 @@ from tasks import (
 )
 
 
-def build_crew(topic: str) -> Crew:
+def build_crew(
+    topic: str,
+    *,
+    task_callback=None,
+    step_callback=None,
+    llm: str | None = None,
+) -> Crew:
     """
     Build and return a configured Crew for the given topic.
 
@@ -47,12 +53,12 @@ def build_crew(topic: str) -> Crew:
         Crew: Ready-to-run CrewAI crew instance
     """
     # Instantiate agents
-    researcher = create_researcher_agent()
-    teacher = create_teacher_agent()
-    simplifier = create_simplifier_agent()
-    student = create_student_agent()
-    examiner = create_examiner_agent()
-    reporter = create_reporter_agent()
+    researcher = create_researcher_agent(llm)
+    teacher = create_teacher_agent(llm)
+    simplifier = create_simplifier_agent(llm)
+    student = create_student_agent(llm)
+    examiner = create_examiner_agent(llm)
+    reporter = create_reporter_agent(llm)
 
     # Instantiate tasks (each task is bound to its agent)
     research_task = create_research_task(topic, researcher)
@@ -68,4 +74,6 @@ def build_crew(topic: str) -> Crew:
         # Sequential: tasks run in order, each agent sees prior outputs
         process=Process.sequential,
         verbose=True,
+        task_callback=task_callback,
+        step_callback=step_callback,
     )

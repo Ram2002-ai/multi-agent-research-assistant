@@ -56,7 +56,9 @@ os.environ.pop("GEMINI_API_KEY", None)
 #   - "openai/gpt-4-1106-preview" (128k tokens)
 #   - "meta-llama/llama-2-70b-chat" (4k tokens)
 #
-DEFAULT_LLM = "openrouter/meta-llama/llama-3.3-70b-instruct"
+DEFAULT_LLM = os.getenv(
+    "DEFAULT_LLM", "openrouter/meta-llama/llama-3.3-70b-instruct"
+)
 
 
 def get_llm() -> str:

@@ -23,6 +23,12 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="MIT License" />
 </div>
 
+<div align="center">
+  <a href="https://render.com/deploy?repo=https://github.com/Ram2002-ai/multi-agent-research-assistant">
+    <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render" />
+  </a>
+</div>
+
 ---
 
 ## Overview

@@ -22,6 +22,21 @@ from app.database.models import (
 )
 
 
+def normalize_database_url(database_url: str) -> str:
+    """Select the PostgreSQL driver installed by the production image.
+
+    Managed database providers commonly expose ``postgres://`` or
+    ``postgresql://`` URLs. The application ships with psycopg 3, so make that
+    driver explicit while leaving already-qualified and SQLite URLs untouched.
+    """
+
+    if database_url.startswith("postgres://"):
+        return database_url.replace("postgres://", "postgresql+psycopg://", 1)
+    if database_url.startswith("postgresql://"):
+        return database_url.replace("postgresql://", "postgresql+psycopg://", 1)
+    return database_url
+
+
 def _json(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False, default=str)
 
@@ -35,6 +50,7 @@ def _loads(value: str | None, default: Any) -> Any:
 
 class Repository:
     def __init__(self, database_url: str):
+        database_url = normalize_database_url(database_url)
         connect_args = {"check_same_thread": False} if database_url.startswith("sqlite") else {}
         self.engine = create_engine(
             database_url, pool_pre_ping=True, connect_args=connect_args

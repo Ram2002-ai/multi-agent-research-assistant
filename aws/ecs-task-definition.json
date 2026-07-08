@@ -1,0 +1,32 @@
+{
+  "family": "researchos-service",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "2048",
+  "executionRoleArn": "arn:aws:iam::<your_account_id>:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::<your_account_id>:role/ecsTaskRole",
+  "containerDefinitions": [
+    {
+      "name": "researchos-api",
+      "image": "<replace-with-ecr-image>",
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [],
+      "secrets": [],
+      "essential": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/researchos",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}

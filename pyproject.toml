@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "multi-agent-research-assistant"
 version = "1.0.0"
@@ -17,6 +21,11 @@ dependencies = [
     "markdown>=3.6",
     "python-docx>=1.1",
 ]
+
+[tool.setuptools]
+packages = ["app", "agents", "tasks", "tools"]
+py-modules = ["config", "crew", "main", "output_formatter", "pdf_formatter"]
+include-package-data = true
 
 [project.optional-dependencies]
 postgres = ["psycopg[binary]>=3.2"]

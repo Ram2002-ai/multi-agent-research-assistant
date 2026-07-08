@@ -1,0 +1,65 @@
+name: AWS ECS Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Build and deploy to AWS ECS
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.AWS_ECR_REPOSITORY }}:latest
+            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.AWS_ECR_REPOSITORY }}:${{ github.sha }}
+
+      - name: Register ECS task definition
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          td = json.loads(Path('aws/ecs-task-definition.json').read_text())
+          image = f"${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.${{secrets.AWS_REGION}}.amazonaws.com/${{secrets.AWS_ECR_REPOSITORY}}:${{github.sha}}"
+          td['containerDefinitions'][0]['image'] = image
+          td['containerDefinitions'][0]['environment'] = [
+              {"name": "APP_ENV", "value": "production"},
+              {"name": "AUTH_REQUIRED", "value": "false"},
+              {"name": "PORT", "value": "8000"},
+              {"name": "DEFAULT_LLM", "value": "openrouter/meta-llama/llama-3.3-70b-instruct"}
+          ]
+          td['containerDefinitions'][0]['secrets'] = [
+              {"name": "OPENROUTER_API_KEY", "valueFrom": "${{ secrets.OPENROUTER_API_KEY_ARN }}"},
+              {"name": "SERPER_API_KEY", "valueFrom": "${{ secrets.SERPER_API_KEY_ARN }}"},
+              {"name": "JWT_SECRET", "valueFrom": "${{ secrets.JWT_SECRET_ARN }}"},
+              {"name": "DATABASE_URL", "valueFrom": "${{ secrets.DATABASE_URL_ARN }}"}
+          ]
+          print(json.dumps(td))
+          Path('aws/ecs-task-definition-generated.json').write_text(json.dumps(td))
+          PY
+          aws ecs register-task-definition --cli-input-json file://aws/ecs-task-definition-generated.json
+
+      - name: Deploy ECS service
+        run: |
+          aws ecs update-service \
+            --cluster ${{ secrets.AWS_ECS_CLUSTER }} \
+            --service ${{ secrets.AWS_ECS_SERVICE }} \
+            --force-new-deployment

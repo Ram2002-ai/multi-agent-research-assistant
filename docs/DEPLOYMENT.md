@@ -31,6 +31,8 @@ storage if downloadable artifacts must persist.
 3. Run `docker compose up --build -d`.
 4. Check `http://localhost:8000/health`.
 
+On Docker and Render, the service uses the `PORT` environment variable when available. The included `Dockerfile` defaults to `8000` when `PORT` is not set.
+
 Compose builds the React application into the FastAPI image, starts PostgreSQL,
 and mounts reports and logs into durable volumes. Run Qdrant as an optional
 profile with `docker compose --profile qdrant up -d`.

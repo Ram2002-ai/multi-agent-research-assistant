@@ -3,3 +3,42 @@ INFO:     Waiting for application startup.
 {"timestamp": "2026-06-30T06:08:22.046205+00:00", "level": "INFO", "logger": "research.api", "message": "ResearchOS API started"}
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+E:\New folder\multi-agent-research-assistant\.venv\Lib\site-packages\pydantic\main.py:250: UserWarning: function callbacks cannot be serialized and will prevent checkpointing. Use a module-level named function instead.
+  validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+{"timestamp": "2026-06-30T06:12:19.053885+00:00", "level": "INFO", "logger": "root", "message": "OpenAI: Successfully validated tool 'search_the_internet_with_serper'"}
+{"timestamp": "2026-06-30T06:12:23.076373+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T06:12:25.589617+00:00", "level": "INFO", "logger": "root", "message": "OpenAI: Successfully validated tool 'search_the_internet_with_serper'"}
+{"timestamp": "2026-06-30T06:12:26.141530+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T06:12:33.533304+00:00", "level": "INFO", "logger": "root", "message": "OpenAI API usage: {'prompt_tokens': 1703, 'completion_tokens': 365, 'total_tokens': 2068, 'cached_prompt_tokens': 0, 'reasoning_tokens': 0}"}
+{"timestamp": "2026-06-30T06:12:34.328049+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T06:12:48.795079+00:00", "level": "INFO", "logger": "root", "message": "OpenAI API usage: {'prompt_tokens': 552, 'completion_tokens': 612, 'total_tokens': 1164, 'cached_prompt_tokens': 0, 'reasoning_tokens': 0}"}
+{"timestamp": "2026-06-30T06:12:50.001162+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T06:12:59.280311+00:00", "level": "INFO", "logger": "root", "message": "OpenAI API usage: {'prompt_tokens': 1158, 'completion_tokens': 160, 'total_tokens': 1318, 'cached_prompt_tokens': 0, 'reasoning_tokens': 0}"}
+{"timestamp": "2026-06-30T06:13:00.446421+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T06:13:07.122485+00:00", "level": "INFO", "logger": "root", "message": "OpenAI API usage: {'prompt_tokens': 1342, 'completion_tokens': 226, 'total_tokens': 1568, 'cached_prompt_tokens': 0, 'reasoning_tokens': 0}"}
+{"timestamp": "2026-06-30T06:13:08.454838+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T06:13:11.308455+00:00", "level": "INFO", "logger": "root", "message": "OpenAI API usage: {'prompt_tokens': 1577, 'completion_tokens': 115, 'total_tokens': 1692, 'cached_prompt_tokens': 0, 'reasoning_tokens': 0}"}
+{"timestamp": "2026-06-30T06:13:12.839753+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T06:14:38.373080+00:00", "level": "INFO", "logger": "root", "message": "OpenAI API usage: {'prompt_tokens': 1858, 'completion_tokens': 1252, 'total_tokens': 3110, 'cached_prompt_tokens': 0, 'reasoning_tokens': 0}"}
+{"timestamp": "2026-06-30T06:14:38.778221+00:00", "level": "INFO", "logger": "research.execution", "message": "Research completed", "job_id": "c4485a4a-a5b8-43b3-883b-424ffe080ff5", "duration_ms": 141616}
+{"timestamp": "2026-06-30T06:19:19.743562+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T06:19:21.080549+00:00", "level": "INFO", "logger": "root", "message": "OpenAI API usage: {'prompt_tokens': 133, 'completion_tokens': 359, 'total_tokens': 492, 'cached_prompt_tokens': 0, 'reasoning_tokens': 0}"}
+E:\New folder\multi-agent-research-assistant\.venv\Lib\site-packages\pydantic\main.py:250: UserWarning: function callbacks cannot be serialized and will prevent checkpointing. Use a module-level named function instead.
+  validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+{"timestamp": "2026-06-30T08:29:14.064065+00:00", "level": "INFO", "logger": "root", "message": "OpenAI: Successfully validated tool 'search_the_internet_with_serper'"}
+{"timestamp": "2026-06-30T08:29:17.722594+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T08:29:20.718439+00:00", "level": "INFO", "logger": "root", "message": "OpenAI: Successfully validated tool 'search_the_internet_with_serper'"}
+{"timestamp": "2026-06-30T08:29:21.205250+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T08:29:27.666694+00:00", "level": "INFO", "logger": "root", "message": "OpenAI API usage: {'prompt_tokens': 1626, 'completion_tokens': 295, 'total_tokens': 1921, 'cached_prompt_tokens': 0, 'reasoning_tokens': 0}"}
+{"timestamp": "2026-06-30T08:29:28.883893+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T08:29:47.747986+00:00", "level": "ERROR", "logger": "opentelemetry.exporter.otlp.proto.http.trace_exporter", "message": "Failed to export span batch code: None, reason: HTTPSConnectionPool(host='telemetry.crewai.com', port=4319): Read timed out. (read timeout=29.99361538887024)"}
+{"timestamp": "2026-06-30T08:30:27.993930+00:00", "level": "INFO", "logger": "root", "message": "OpenAI API usage: {'prompt_tokens': 488, 'completion_tokens': 855, 'total_tokens': 1343, 'cached_prompt_tokens': 0, 'reasoning_tokens': 0}"}
+{"timestamp": "2026-06-30T08:30:29.610240+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T08:30:30.430848+00:00", "level": "INFO", "logger": "root", "message": "OpenAI API usage: {'prompt_tokens': 1357, 'completion_tokens': 279, 'total_tokens': 1636, 'cached_prompt_tokens': 0, 'reasoning_tokens': 0}"}
+{"timestamp": "2026-06-30T08:30:31.349444+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T08:30:37.203507+00:00", "level": "INFO", "logger": "root", "message": "OpenAI API usage: {'prompt_tokens': 1641, 'completion_tokens': 266, 'total_tokens': 1907, 'cached_prompt_tokens': 0, 'reasoning_tokens': 0}"}
+{"timestamp": "2026-06-30T08:30:38.437147+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T08:30:57.303752+00:00", "level": "INFO", "logger": "root", "message": "OpenAI API usage: {'prompt_tokens': 1896, 'completion_tokens': 246, 'total_tokens': 2142, 'cached_prompt_tokens': 0, 'reasoning_tokens': 0}"}
+{"timestamp": "2026-06-30T08:30:59.201554+00:00", "level": "INFO", "logger": "httpx", "message": "HTTP Request: POST https://openrouter.ai/api/v1/chat/completions \"HTTP/1.1 200 OK\""}
+{"timestamp": "2026-06-30T08:31:09.885041+00:00", "level": "INFO", "logger": "root", "message": "OpenAI API usage: {'prompt_tokens': 2328, 'completion_tokens': 1449, 'total_tokens': 3777, 'cached_prompt_tokens': 0, 'reasoning_tokens': 0}"}
+{"timestamp": "2026-06-30T08:31:10.268073+00:00", "level": "INFO", "logger": "research.execution", "message": "Research completed", "job_id": "da4cbaec-70a7-414b-9f0f-7b13dad5b2bb", "duration_ms": 119607}

@@ -1,1 +1,225 @@
 INFO:     127.0.0.1:54021 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54077 - "GET /api/v1/reports HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54078 - "GET /api/v1/analytics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54080 - "GET /api/v1/reports HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54081 - "GET /api/v1/analytics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54089 - "POST /api/v1/research HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:54091 - "GET /api/v1/research/c4485a4a-a5b8-43b3-883b-424ffe080ff5/events HTTP/1.1" 200 OK
++-------------------------[CrewAIEventsBus] Sync handler error in on_crew_started: 'charmap' codec can't 
+encode character '\U0001f680' in position 1: character maps to <undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\U0001f4cb' in position 1: character maps to <undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_tool_usage_started: 'charmap' codec 
+can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
+[32mTool search_the_internet_with_serper executed with result: {'searchParameters': {'q': 'what is ai recent credible sources', 'type': 'search', 'num': 10, 'engine': 'google'}, 'organic': [{'title': 'AI News & Artificial Intelligence - TechCrunch', 'link': 'http...[0m
++-------------------------[CrewAIEventsBus] Sync handler error in on_tool_usage_finished: 'charmap' codec
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
+[35m[Finalize] todos_count=0, todos_with_results=0[0m
++-------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\U0001f680' in position 1: character maps to <undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
+INFO:     127.0.0.1:54131 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54131 - "GET /assets/index-DDZ_FS52.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54132 - "GET /assets/index-DiCkggHU.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54131 - "GET /api/v1/reports HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54132 - "GET /api/v1/analytics HTTP/1.1" 200 OK
+[35m[Finalize] todos_count=0, todos_with_results=0[0m
++------------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\U0001f4cb' in position 1: character maps to <undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
+[35m[Finalize] todos_count=0, todos_with_results=0[0m
++-------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\U0001f680' in position 1: character maps to <undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
+[35m[Finalize] todos_count=0, todos_with_results=0[0m
++------------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
++-------------------------[CrewAIEventsBus+-]----------------------------- Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
+[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\U0001f4cb' in position 1: character maps to <undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
+INFO:     127.0.0.1:54188 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54188 - "GET /openapi.json HTTP/1.1" 200 OK
+[35m[Finalize] todos_count=0, todos_with_results=0[0m
++---------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\u2705' in position 1: character maps to 
+<undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>+-------------------------
+[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\U0001f680' in position 1: character maps to <undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
+INFO:     127.0.0.1:54223 - "GET /api/v1/reports/c4485a4a-a5b8-43b3-883b-424ffe080ff5 HTTP/1.1" 200 OK
+[35m[Finalize] todos_count=0, todos_with_results=0[0m
++---------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\u2705' in position 1: character maps to 
+<undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_crew_completed: 'charmap' codec 
+can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
+INFO:     127.0.0.1:54233 - "GET /api/v1/reports/c4485a4a-a5b8-43b3-883b-424ffe080ff5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54236 - "GET /api/v1/reports HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54237 - "GET /api/v1/analytics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54240 - "GET /api/v1/config HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54249 - "GET /api/v1/reports/c4485a4a-a5b8-43b3-883b-424ffe080ff5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54258 - "GET /api/v1/analytics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54259 - "GET /api/v1/reports HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54265 - "GET /api/v1/reports HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54264 - "GET /api/v1/analytics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54274 - "GET /api/v1/reports HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54275 - "GET /api/v1/analytics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54276 - "GET /api/v1/reports HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54277 - "GET /api/v1/analytics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54279 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54279 - "GET /assets/index-DDZ_FS52.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54280 - "GET /assets/index-DiCkggHU.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54279 - "GET /api/v1/reports HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54280 - "GET /api/v1/analytics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54280 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54280 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54308 - "POST /api/v1/knowledge/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54311 - "POST /api/v1/knowledge/search HTTP/1.1" 200 OK
++-------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
+[35m[Finalize] todos_count=0, todos_with_results=0[0m
++------------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
+INFO:     127.0.0.1:54322 - "POST /api/v1/playground HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54372 - "GET /api/v1/reports/c4485a4a-a5b8-43b3-883b-424ffe080ff5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54411 - "GET /api/v1/config HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55355 - "GET /api/v1/reports/c4485a4a-a5b8-43b3-883b-424ffe080ff5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55354 - "POST /api/v1/knowledge/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55461 - "GET /api/v1/config HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55699 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55699 - "GET /assets/index-DDZ_FS52.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55698 - "GET /assets/index-DiCkggHU.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55698 - "GET /api/v1/reports HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55699 - "GET /api/v1/analytics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55729 - "POST /api/v1/research HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:55729 - "GET /api/v1/research/da4cbaec-70a7-414b-9f0f-7b13dad5b2bb/events HTTP/1.1" 200 OK
++---------------------------[CrewAIEventsBus] Sync handler error in on_crew_started: 'charmap' codec can't 
+encode character '\u2705' in position 1: character maps to <undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\U0001f680' in position 1: character maps to <undefined>
++---------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\u2705' in position 1: character maps to <undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_tool_usage_started: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
+[32mTool search_the_internet_with_serper executed with result: {'searchParameters': {'q': 'handling timeout and retries in agentic ai recent credible sources', 'type': 'search', 'num': 10, 'engine': 'google'}, 'organic': [{'title': 'Building Retries in Agents: Ho...[0m
++---------------------------[CrewAIEventsBus] Sync handler error in on_tool_usage_finished: 'charmap' codec
+can't encode character '\u2705' in position 1: character maps to <undefined>
+[35m[Finalize] todos_count=0, todos_with_results=0[0m
++------------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
++---------------------------[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\u2705' in position 1: character maps to <+-undefined------------------------>
+[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
+[35m[Finalize] todos_count=0, todos_with_results=0[0m
++---------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\u2705' in position 1: character maps to 
+<undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\U0001f680' in position 1: character maps to <undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
+[35m[Finalize] todos_count=0, todos_with_results=0[0m
++---------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\u2705' in position 1: character maps to 
+<undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\U0001f4cb' in position 1: character maps to <undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
+[35m[Finalize] todos_count=0, todos_with_results=0[0m
++------------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
++---------------------------[CrewAIEventsBus] Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\u2705' in position 1: character maps to <undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\U0001f680' in position 1: character maps to <undefined>+-
+--------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\u2705' in position 1: character maps to <undefined>
+[35m[Finalize] todos_count=0, todos_with_results=0[0m
++------------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<+-undefined-------------------------->
+[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\u2705' in position 1+-: character maps to <-----------------------------undefined>
+[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
+[35m[Finalize] todos_count=0, todos_with_results=0[0m
++---------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\u2705' in position 1: character maps to 
+<undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
++------------------------------[CrewAIEventsBus] Sync handler error in on_crew_completed: 'charmap' codec 
+can't encode character '\U0001f4cb' in position 1: character maps to 
+<undefined>
+INFO:     127.0.0.1:55729 - "GET /api/v1/reports/da4cbaec-70a7-414b-9f0f-7b13dad5b2bb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55729 - "GET /api/v1/reports HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55729 - "GET /api/v1/analytics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55974 - "GET /api/v1/reports/da4cbaec-70a7-414b-9f0f-7b13dad5b2bb/export/pdf HTTP/1.1" 200 OK

@@ -1,0 +1,2 @@
+{"timestamp": "2026-06-30T06:14:38.777840+00:00", "level": "INFO", "logger": "research.execution", "message": "Research completed", "job_id": "c4485a4a-a5b8-43b3-883b-424ffe080ff5", "duration_ms": 141616}
+{"timestamp": "2026-06-30T08:31:10.267798+00:00", "level": "INFO", "logger": "research.execution", "message": "Research completed", "job_id": "da4cbaec-70a7-414b-9f0f-7b13dad5b2bb", "duration_ms": 119607}
